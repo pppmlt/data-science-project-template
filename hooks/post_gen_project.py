@@ -44,7 +44,7 @@ class MambaPackageManager(CondaLikePackageManager):
 
 class MicroMambaPackageManager(CondaLikePackageManager):
     def create_env_from_yaml_file(self, yaml_file_path: pathlib.Path) -> None:
-        full_cmd = [self.executable, "create", "--file", str(yaml_file_path), "-q"]
+        full_cmd = [self.executable, "create", "--file", str(yaml_file_path), "-q", "-y"]
         subprocess.run(full_cmd, check=True)
 
 
