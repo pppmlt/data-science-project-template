@@ -41,19 +41,17 @@ repos:
             args: [--config=./pyproject.toml]
             language: system
             types: [python]
-    {%- if cookiecutter.install_jupyter == 'yes' %}
-          - id: nbqa-black
-            name: nbqa-black
-            entry: nbqa black
-            language: system
-            files: \.ipynb
-    {%- endif %}
           - id: pylint
             name: pylint
             entry: pylint
             language: system
             types: [python]
     {%- if cookiecutter.install_jupyter == 'yes' %}
+          - id: nbqa-black
+            name: nbqa-black
+            entry: nbqa black
+            language: system
+            files: \.ipynb
           - id: nbqa-pylint
             name: nbqa-pylint
             entry: nbqa pylint
