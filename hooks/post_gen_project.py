@@ -140,15 +140,10 @@ if __name__ == "__main__":
     PACKAGE_MANAGER.create_env_from_yaml_file(yaml_file_path=pathlib.Path("environment.yaml"))
     PACKAGE_MANAGER.run_subprocess_in_env(env_name="{{cookiecutter.env_name}}", cmd=["pre-commit"])
 
-    print("before")
     # setup ci/cd related files (if any)
-    print("initializing")
     CICD_FILE_MANAGER = get_ci_cd_file_manager(ci_cd_options="{{cookiecutter.cicd_configuration}}")
-    print("copying")
     CICD_FILE_MANAGER.copy_chosen_files()
-    print("cleaning")
     CICD_FILE_MANAGER.clean_temp_dir()
-    print("after")
 
     # add template files to git and create initial commit
     subprocess.run(["git", "add", "."], check=True)
