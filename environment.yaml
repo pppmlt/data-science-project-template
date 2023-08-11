@@ -4,7 +4,7 @@ channels:
 dependencies:
     - black=23.1.0
     - python=3.10.9
-    - pre-commit=3.0.4
+    - pre-commit=3.3.3
     - pylint=2.16.1
     - pytest=7.2.1
     - cookiecutter=2.1.1
