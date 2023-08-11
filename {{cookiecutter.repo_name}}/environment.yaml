@@ -3,7 +3,7 @@ channels:
     - conda-forge
 dependencies:
     {%- if cookiecutter.install_jupyter == 'yes' %}
-    - nbqa=1.6.1
+    - nbqa=1.7.0
     - jupyter=1.0.0
     {%- endif %}
     - python=3.10.9
