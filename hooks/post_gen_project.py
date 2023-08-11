@@ -138,7 +138,9 @@ if __name__ == "__main__":
     # setup environment
     PACKAGE_MANAGER = get_package_manager()
     PACKAGE_MANAGER.create_env_from_yaml_file(yaml_file_path=pathlib.Path("environment.yaml"))
-    PACKAGE_MANAGER.run_subprocess_in_env(env_name="{{cookiecutter.env_name}}", cmd=["pre-commit"])
+    PACKAGE_MANAGER.run_subprocess_in_env(
+        env_name="{{cookiecutter.env_name}}", cmd=["pre-commit", "install", "--install-hooks"]
+    )
 
     # setup ci/cd related files (if any)
     CICD_FILE_MANAGER = get_ci_cd_file_manager(ci_cd_options="{{cookiecutter.cicd_configuration}}")
