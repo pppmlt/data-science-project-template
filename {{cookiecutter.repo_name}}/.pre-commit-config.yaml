@@ -33,14 +33,14 @@ repos:
             stages:
                 - commit
                 - manual
-    - repo: local
+    - repo: https://github.com/psf/black
+      rev: 23.7.0
       hooks:
           - id: black
-            name: black
-            entry: black
+            language_version: python3.10
             args: [--config=./pyproject.toml]
-            language: system
-            types: [python]
+    - repo: local
+      hooks:
           - id: pylint
             name: pylint
             entry: pylint

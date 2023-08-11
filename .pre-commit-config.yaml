@@ -25,14 +25,12 @@ repos:
             additional_dependencies: ['@commitlint/config-conventional']
             stages:
                 - commit-msg
-    - repo: local
+    - repo: https://github.com/psf/black
+      rev: 23.7.0
       hooks:
           - id: black
-            name: black
-            entry: black
+            language_version: python3.10
             args: [--config=./pyproject.toml]
-            language: system
-            types: [python]
     - repo: https://github.com/astral-sh/ruff-pre-commit
       rev: v0.0.284
       hooks:
