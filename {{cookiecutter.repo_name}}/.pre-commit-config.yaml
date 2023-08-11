@@ -39,6 +39,14 @@ repos:
           - id: black
             language_version: python3.10
             args: [--config=./pyproject.toml]
+            types: [python]
+    {%- if cookiecutter.install_jupyter == 'yes' %}
+    - repo: https://github.com/nbQA-dev/nbQA
+      rev: 1.7.0
+      hooks:
+        - id: nbqa-black
+          args: [--config=./pyproject.toml]
+    {%- endif %}
     - repo: local
       hooks:
           - id: pylint
@@ -47,11 +55,6 @@ repos:
             language: system
             types: [python]
     {%- if cookiecutter.install_jupyter == 'yes' %}
-          - id: nbqa-black
-            name: nbqa-black
-            entry: nbqa black
-            language: system
-            files: \.ipynb
           - id: nbqa-pylint
             name: nbqa-pylint
             entry: nbqa pylint
